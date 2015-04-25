@@ -1,6 +1,153 @@
 /*global alert*/
 'use strict';
 
+function insertSiblingBefore(info, tab) {
+
+    //Add all you functional Logic here
+    chrome.tabs.query({
+        "active": true,
+        "currentWindow": true
+    }, function (tabs) {
+        chrome.tabs.sendMessage(tabs[0].id, {
+
+            "functiontoInvoke": "insertSiblingBefore"
+        });
+        console.log('message sent');
+    });
+}
+function insertSiblingAfter(info, tab) {
+
+    //Add all you functional Logic here
+    chrome.tabs.query({
+        "active": true,
+        "currentWindow": true
+    }, function (tabs) {
+        chrome.tabs.sendMessage(tabs[0].id, {
+
+            "functiontoInvoke": "insertSiblingAfter"
+        });
+    });
+}
+function insertFirstChild(info, tab) {
+
+    //Add all you functional Logic here
+    chrome.tabs.query({
+        "active": true,
+        "currentWindow": true
+    }, function (tabs) {
+        chrome.tabs.sendMessage(tabs[0].id, {
+
+            "functiontoInvoke": "insertFirstChild"
+        });
+    });
+}
+function insertLastChild(info, tab) {
+
+    //Add all you functional Logic here
+    chrome.tabs.query({
+        "active": true,
+        "currentWindow": true
+    }, function (tabs) {
+        chrome.tabs.sendMessage(tabs[0].id, {
+
+            "functiontoInvoke": "insertLastChild"
+        });
+    });
+}
+function insertParent(info, tab) {
+
+    //Add all you functional Logic here
+    chrome.tabs.query({
+        "active": true,
+        "currentWindow": true
+    }, function (tabs) {
+        chrome.tabs.sendMessage(tabs[0].id, {
+
+            "functiontoInvoke": "insertParent"
+        });
+    });
+}
+function insertSiblingBeforeSummary(info, tab) {
+
+    //Add all you functional Logic here
+    chrome.tabs.query({
+        "active": true,
+        "currentWindow": true
+    }, function (tabs) {
+        chrome.tabs.sendMessage(tabs[0].id, {
+
+            "functiontoInvoke": "insertSiblingBeforeSummary"
+        });
+        console.log('message sent');
+    });
+}
+function insertSiblingAfterSummary(info, tab) {
+
+    //Add all you functional Logic here
+    chrome.tabs.query({
+        "active": true,
+        "currentWindow": true
+    }, function (tabs) {
+        chrome.tabs.sendMessage(tabs[0].id, {
+
+            "functiontoInvoke": "insertSiblingAfterSummary"
+        });
+    });
+}
+function insertFirstChildSummary(info, tab) {
+
+    //Add all you functional Logic here
+    chrome.tabs.query({
+        "active": true,
+        "currentWindow": true
+    }, function (tabs) {
+        chrome.tabs.sendMessage(tabs[0].id, {
+
+            "functiontoInvoke": "insertFirstChildSummary"
+        });
+    });
+}
+function insertLastChildSummary(info, tab) {
+
+    //Add all you functional Logic here
+    chrome.tabs.query({
+        "active": true,
+        "currentWindow": true
+    }, function (tabs) {
+        chrome.tabs.sendMessage(tabs[0].id, {
+
+            "functiontoInvoke": "insertLastChildSummary"
+        });
+    });
+}
+function insertParentSummary(info, tab) {
+
+    //Add all you functional Logic here
+    chrome.tabs.query({
+        "active": true,
+        "currentWindow": true
+    }, function (tabs) {
+        chrome.tabs.sendMessage(tabs[0].id, {
+
+            "functiontoInvoke": "insertParentSummary"
+        });
+    });
+}
+
+// Create one test item for each context type.
+var menuItems = [["Summary: Insert as Sibling Before",insertSiblingBeforeSummary],["Summary: Insert as Sibling After",insertSiblingAfterSummary],["Summary: Insert as First Child",insertFirstChildSummary],["Summary: Insert as Last Child",insertLastChildSummary],["Summary: Insert as Parent",insertParentSummary],["Main: Insert as Sibling Before",insertSiblingBefore],["Main: Insert as Sibling After",insertSiblingAfter],["Main: Insert as First Child",insertFirstChild],["Main: Insert as Last Child",insertLastChild],["Main: Insert as Parent",insertParent]];
+var contexts = ["page", "selection", "link", "editable", "image", "video",
+    "audio"];
+for (var i = 0; i < menuItems.length; i++) {
+    var id = chrome.contextMenus.create({
+        "title": menuItems[i][0],
+        "contexts": contexts,
+        "onclick": menuItems[i][1]
+    });
+   
+}
+
+
 var PROXY_NOT_CONNECTED = 'not connected';
 var PROXY_COULD_NOT_START_PORT_ERROR = 'could not start port error';
 var PROXY_COULD_NOT_START_LIBS_ERROR = 'could not start libs error';
