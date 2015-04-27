@@ -18,9 +18,10 @@ class PostInstallScript(install):
 			'type': 'stdio',
 			'allowed_origins': [
 				'chrome-extension://mabhojhgigkmnkppkncbkblecnnanfmd/',
-				'chrome-extension://ecgndobpbcogellijibmcnjflahddidl/'
-			]
-		}
+				'chrome-extension://ecgndobpbcogellijibmcnjflahddidl/',
+				'chrome-extension://lbcgcadimhdhfkkdifmecakdooikgnea/'
+				
+		]}
 
 		if sys.platform == 'win32':
 			nativeMessagingManifest['path'] = 'tamper.bat'

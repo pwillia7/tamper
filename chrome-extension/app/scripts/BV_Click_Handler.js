@@ -9,7 +9,7 @@ function insertSiblingAfterSummary(){
 	selectedElement.parentNode.insertBefore(bvElement,selectedElement.nextSibling);
 }
 function insertLastChildSummary(){
-	var bvElement = document.getElementById('BVRRSummaryContainer');
+    var bvElement = document.getElementById('BVRRSummaryContainer');
 	selectedElement.appendChild(bvElement);
 
 }
@@ -47,34 +47,34 @@ function insertParent(){
 
 }
 chrome.extension.onMessage.addListener(function (message, sender, callback) {
-    if (message.functiontoInvoke == "insertSiblingBefore") {
+    if (message.functiontoInvoke === 'insertSiblingBefore') {
         insertSiblingBefore();
     } else
-    if (message.functiontoInvoke == "insertSiblingAfter") {
+    if (message.functiontoInvoke === 'insertSiblingAfter') {
         insertSiblingAfter();
     } else
-    if (message.functiontoInvoke == "insertLastChild") {
+    if (message.functiontoInvoke === 'insertLastChild') {
         insertLastChild();
     } else
-    if (message.functiontoInvoke == "insertFirstChild") {
+    if (message.functiontoInvoke === 'insertFirstChild') {
         insertFirstChild();
     } else
-    if (message.functiontoInvoke == "insertParent") {
+    if (message.functiontoInvoke === 'insertParent') {
         insertParent();
     } else
-    if (message.functiontoInvoke == "insertSiblingBeforeSummary") {
+    if (message.functiontoInvoke === 'insertSiblingBeforeSummary') {
         insertSiblingBeforeSummary();
     } else
-    if (message.functiontoInvoke == "insertSiblingAfterSummary") {
+    if (message.functiontoInvoke === 'insertSiblingAfterSummary') {
         insertSiblingAfterSummary();
     } else
-    if (message.functiontoInvoke == "insertLastChildSummary") {
+    if (message.functiontoInvoke === 'insertLastChildSummary') {
         insertLastChildSummary();
     } else
-    if (message.functiontoInvoke == "insertFirstChildSummary") {
+    if (message.functiontoInvoke === 'insertFirstChildSummary') {
         insertFirstChildSummary();
     } else
-    if (message.functiontoInvoke == "insertParentSummary") {
+    if (message.functiontoInvoke === 'insertParentSummary') {
         insertParentSummary();
     }
 });
@@ -82,8 +82,9 @@ chrome.extension.onMessage.addListener(function (message, sender, callback) {
 document.addEventListener('contextmenu', function(e) {
     e = e || window.event;
     var target = e.target || e.srcElement;
-   		selectedElement = target;
-   		ogStyle = target.style.border;
-        target.style.border = '3px solid red';
-        setTimeout(function(){target.style.border = ogStyle;},1200);
+    var ogStyle;
+    selectedElement = target;
+    ogStyle = target.style.border;
+    target.style.border = '3px solid red';
+    setTimeout(function(){target.style.border = ogStyle;},1200);
 }, false);

@@ -65,7 +65,7 @@ module.exports = function (grunt) {
         // Grunt server and debug server setting
         connect: {
             options: {
-                port: 9000,
+                port: 8080,
                 livereload: 35729,
                 // change this to '0.0.0.0' to access the server from outside
                 hostname: 'localhost'

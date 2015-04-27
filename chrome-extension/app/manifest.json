@@ -1,6 +1,6 @@
 {
     "name": "__MSG_appName__",
-    "version": "0.24.2",
+    "version": "0.24.4",
     "manifest_version": 2,
     "description": "__MSG_appDescription__",
     "icons": {
@@ -8,10 +8,15 @@
         "128": "images/icon-128.png"
     },
     "content_scripts": [
-    {
-      "matches": ["http://*/*","https://*/*"],
-      "js": ["scripts/BV_Click_Handler.js"]
-    }
+        {
+            "matches": [
+                "http://*/*",
+                "https://*/*"
+            ],
+            "js": [
+                "scripts/BV_Click_Handler.js"
+            ]
+        }
     ],
     "default_locale": "en",
     "background": {
@@ -39,8 +44,8 @@
     "permissions": [
         "nativeMessaging",
         "contextMenus",
-        "proxy",
-        "tabs"
+        "tabs",
+        "proxy"
     ],
     "devtools_page": "devtools.html",
     "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
